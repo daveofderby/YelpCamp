@@ -27,12 +27,18 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
-app.get('/makecampground', async (req, res) => {
-    await Campground.deleteMany({})
-    const camp = new Campground ({
-        title: 'My Backyard', 
-        description: 'The garden behind my house'
-    });
-    await camp.save();
-    res.send(camp)
+app.get('/campgrounds', async (req, res) => {
+    const campgrounds = await Campground.find({});
+    console.log(campgrounds)
+    res.render('campgrounds/index', { campgrounds })
 })
+
+// app.get('/makecampground', async (req, res) => {
+//     await Campground.deleteMany({})
+//     const camp = new Campground ({
+//         title: 'My Backyard', 
+//         description: 'The garden behind my house'
+//     });
+//     await camp.save();
+//     res.send(camp)
+// })
