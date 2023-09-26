@@ -28,6 +28,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/makecampground', async (req, res) => {
+    await Campground.deleteMany({})
     const camp = new Campground ({
         title: 'My Backyard', 
         description: 'The garden behind my house'
