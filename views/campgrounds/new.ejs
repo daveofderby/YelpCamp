@@ -2,32 +2,60 @@
 <div class="row">
   <h1 class="text-center">New Campground</h1>
   <div class="col-6 offset-3">
-    <form action="/campgrounds" method="POST">
+    <form class="d-inline" action="/campgrounds" method="POST">
       <div class="mb-3">
         <label class="form-label" for="title">Title of Camp</label>
-        <input class="form-control" type="text" id="title" name="campground[title]" />
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="campground[title]"
+        />
       </div>
       <div class="mb-3">
         <label class="form-label" for="location">Location</label>
-        <input class="form-control" type="text" id="location" name="campground[location]" />
+        <input
+          class="form-control"
+          type="text"
+          id="location"
+          name="campground[location]"
+        />
       </div>
       <div class="mb-3">
         <label class="form-label" for="image">Image URL</label>
-        <input class="form-control" type="text" id="image" name="campground[image]" />
+        <input
+          class="form-control"
+          type="text"
+          id="image"
+          name="campground[image]"
+        />
       </div>
       <div class="mb-3">
         <label class="form-label" for="price">Campground Price</label>
         <div class="input-group">
           <span class="input-group-text" id="price-label">£</span>
-          <input type="text" class="form-control" id="price" placeholder="0.00" name="campground[price]" aria-label="price" aria-describedby="price-label">
+          <input
+            type="text"
+            class="form-control"
+            id="price"
+            placeholder="0.00"
+            name="campground[price]"
+            aria-label="price"
+            aria-describedby="price-label"
+          />
         </div>
       </div>
       <div class="mb-3">
         <label class="form-label" for="description">Description</label>
-        <input class="form-control" type="text" id="description" name="campground[description]" />
+        <input
+          class="form-control"
+          type="text"
+          id="description"
+          name="campground[description]"
+        />
       </div>
-      <button>Submit</button>
+      <button class="card-link btn btn-primary">Submit</button>
     </form>
-    <a href="/campgrounds/">Cancel</a>
+    <a class="card-link btn btn-warning" href="/campgrounds/">Cancel</a>
   </div>
 </div>
