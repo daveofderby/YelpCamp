@@ -1,10 +1,10 @@
 <% layout('layouts/boilerplate')%>
-    <h1>Add a new campground</h1>
-    <form action="/campgrounds" method="POST">
-        <label for="campname">Title of Camp:</label>
-        <input type="text" id="campname" name="campground[title]">
-        <label for="camplocation">Location:</label>
-        <input type="text" id="camplocation" name="campground[location]">
-        <button>Submit</button>
-    </form>
-    <a href="/campgrounds/">Cancel</a>
+<h1>Add a new campground</h1>
+<form action="/campgrounds" method="POST">
+  <label for="campname">Title of Camp:</label>
+  <input type="text" id="campname" name="campground[title]" />
+  <label for="camplocation">Location:</label>
+  <input type="text" id="camplocation" name="campground[location]" />
+  <button>Submit</button>
+</form>
+<a href="/campgrounds/">Cancel</a>
