@@ -1,7 +1,7 @@
 <% layout('layouts/boilerplate')%>
 <div class="row">
   <div class="col-6 offset-3">
-    <div class="card">
+    <div class="card mb-5">
       <img src="<%= campground.image%>"" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title"><%= campground.title %></h5>
@@ -27,6 +27,7 @@
           <button class="card-link btn btn-danger">Delete</button>
         </form>
       </div>
+      <div class="card-footer text-secondary">2 days ago</div>
     </div>
   </div>
 </div>
