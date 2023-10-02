@@ -2,7 +2,12 @@
 <div class="row">
   <h1 class="text-center">New Campground</h1>
   <div class="col-10 offset-1 mb-3">
-    <form class="d-inline" action="/campgrounds" method="POST">
+    <form
+      class="d-inline validated-form"
+      action="/campgrounds"
+      method="POST"
+      novalidate
+    >
       <div class="mb-3">
         <label class="form-label" for="title">Title of Camp</label>
         <input
@@ -10,7 +15,9 @@
           type="text"
           id="title"
           name="campground[title]"
+          required
         />
+        <div class="valid-feedback">Loos good!</div>
       </div>
       <div class="mb-3">
         <label class="form-label" for="location">Location</label>
@@ -19,7 +26,9 @@
           type="text"
           id="location"
           name="campground[location]"
+          required
         />
+        <div class="valid-feedback">Loos good!</div>
       </div>
       <div class="mb-3">
         <label class="form-label" for="image">Image URL</label>
@@ -28,7 +37,9 @@
           type="text"
           id="image"
           name="campground[image]"
+          required
         />
+        <div class="valid-feedback">Loos good!</div>
       </div>
       <div class="mb-3">
         <label class="form-label" for="price">Campground Price</label>
@@ -42,7 +53,9 @@
             name="campground[price]"
             aria-label="price"
             aria-describedby="price-label"
+            required
           />
+          <div class="valid-feedback">Loos good!</div>
         </div>
       </div>
       <div class="mb-3">
@@ -52,10 +65,38 @@
           type="text"
           id="description"
           name="campground[description]"
+          required
         />
+        <div class="valid-feedback">Loos good!</div>
       </div>
       <button class="card-link btn btn-primary">Submit</button>
     </form>
     <a class="card-link btn btn-warning" href="/campgrounds/">Cancel</a>
   </div>
 </div>
+
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (() => {
+    "use strict";
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll(".validated-form");
+
+    // Loop over them and prevent submission
+    Array.from(forms).forEach((form) => {
+      form.addEventListener(
+        "submit",
+        (event) => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add("was-validated");
+        },
+        false
+      );
+    });
+  })();
+</script>
