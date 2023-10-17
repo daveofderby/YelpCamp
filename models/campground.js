@@ -21,7 +21,7 @@ const CampgroundSchema = new Schema({
 CampgroundSchema.post("findOneAndDelete", async function (doc) {
   if (doc) {
     const result = await Review.deleteMany({ _id: { $in: doc.reviews } });
-    console.log(result);
+    // console.log(result);
   }
 });
 
