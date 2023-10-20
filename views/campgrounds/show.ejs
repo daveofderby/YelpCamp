@@ -13,6 +13,7 @@
         </li>
         <li class="list-group-item">£<%= campground.price %> per night</li>
       </ul>
+      <% if(currentUser && campground.author.equals(currentUser._id)) { %>
       <div class="card-body">
         <a
           class="card-link btn btn-warning"
@@ -27,6 +28,7 @@
           <button class="card-link btn btn-danger">Delete</button>
         </form>
       </div>
+      <% } %>
       <div class="card-footer text-secondary">
         Submitted by <% if(campground.author) {%> <%=campground.author.username
         %> <% } %>
