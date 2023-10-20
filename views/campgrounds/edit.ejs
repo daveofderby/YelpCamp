@@ -18,7 +18,7 @@
           value="<%= campground.title  %>"
           required
         />
-        <div class="valid-feedback">Loos good!</div>
+        <div class="valid-feedback">Looks good!</div>
       </div>
       <div class="mb-3">
         <label class="form-label" for="location">Location</label>
@@ -30,7 +30,7 @@
           value="<%= campground.location  %>"
           required
         />
-        <div class="valid-feedback">Loos good!</div>
+        <div class="valid-feedback">Looks good!</div>
       </div>
       <div class="mb-3">
         <label class="form-label" for="image">Image URL</label>
@@ -42,7 +42,7 @@
           value="<%= campground.image %>"
           required
         />
-        <div class="valid-feedback">Loos good!</div>
+        <div class="valid-feedback">Looks good!</div>
       </div>
       <div class="mb-3">
         <label class="form-label" for="price">Campground Price</label>
@@ -59,7 +59,7 @@
             value="<%= campground.price %>"
             required
           />
-          <div class="valid-feedback">Loos good!</div>
+          <div class="valid-feedback">Looks good!</div>
         </div>
       </div>
       <div class="mb-3">
@@ -72,9 +72,12 @@
           value="<%= campground.description %>"
           required
         />
-        <div class="valid-feedback">Loos good!</div>
+        <div class="valid-feedback">Looks good!</div>
       </div>
-      <button class="card-link btn btn-primary">Submit</button>
+
+      <button class="card-link btn btn-primary">
+        Submitted by <%= currentUser.username %>
+      </button>
     </form>
     <a
       class="card-link btn btn-warning"
