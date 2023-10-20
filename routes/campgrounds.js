@@ -76,7 +76,6 @@ router.put(
   catchAsync(async (req, res, next) => {
     const { id } = req.params;
     req.body.campground.author = req.user._id;
-    console.log(req.body.campground);
     const campground = await Campground.findByIdAndUpdate(id, {
       ...req.body.campground,
     });

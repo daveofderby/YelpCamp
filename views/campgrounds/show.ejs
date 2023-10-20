@@ -28,7 +28,8 @@
         </form>
       </div>
       <div class="card-footer text-secondary">
-        Submitted by <%=campground.author.username %>
+        Submitted by <% if(campground.author) {%> <%=campground.author.username
+        %> <% } %>
       </div>
     </div>
   </div>
