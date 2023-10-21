@@ -17,7 +17,10 @@
           <small class="text-secondary"><%=campground.location%></small>
         </p>
         <p class="card-title">
-          <small class="text-secondary"><%=campground.author.username%></small>
+          <small class="text-secondary"
+            ><% if(campground.author) {%> <%= campground.author.username %> <% }
+            %></small
+          >
         </p>
       </div>
     </div>
