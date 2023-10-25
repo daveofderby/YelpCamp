@@ -52,7 +52,13 @@ router.get("/new", isLoggedIn, campgrounds.newRecord);
 router
   .route("/:id")
   .get(catchAsync(campgrounds.showRecord))
-  .put(isLoggedIn, validateCampground, isAuthor, catchAsync(campgrounds.updateRecord))
+  .put(
+    isLoggedIn,
+    isAuthor,
+    upload.array("images"),
+    validateCampground,
+    catchAsync(campgrounds.updateRecord)
+  )
   .delete(isLoggedIn, isAuthor, catchAsync(campgrounds.deleteRecord));
 
 router.get("/:id/edit", isLoggedIn, isAuthor, catchAsync(campgrounds.editRecord));
