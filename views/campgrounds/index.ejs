@@ -5,7 +5,9 @@
 <div class="card mb-3">
   <div class="row">
     <div class="col-md-4">
-      <img src="<%=campground.image%>" alt="" class="img-fluid" />
+      <% if(campground.images.length) {%>
+      <img src="<%=campground.images[0].url%>" alt="" class="img-fluid" />
+      <% } %>
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -18,8 +20,8 @@
         </p>
         <p class="card-title">
           <small class="text-secondary"
-            ><% if(campground.author) {%> <%= campground.author.username %> <% }
-            %></small>
+            ><% if(campground.author) {%> <%= campground.author.username %> <% } %></small
+          >
         </p>
       </div>
     </div>
