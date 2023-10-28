@@ -7,6 +7,7 @@ const Review = require("../models/review");
 const DB_URL = "mongodb+srv://daveofderby:4tAe9svV1mRKWsCP@cluster0.hm2obzv.mongodb.net/";
 
 // const DB_URL = "mongodb://localhost:27017/yelp-camp";
+// const AUTHOR = "652fc1f506016e459d6e6c9a"
 
 mongoose.connect(DB_URL, {
   useNewUrlParser: true,
@@ -34,6 +35,10 @@ const seedDB = async () => {
       title: `${sample(descriptors)} ${sample(places)}`,
       description: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque necessitatibus quisquam, blanditiis ex totam deleniti nisi sint possimus veniam sit? Minima omnis corporis dignissimos doloribus pariatur culpa dolores ut libero?`,
       price,
+      geometry: {
+        type: "Point",
+        coordinates: [cities[random1000].longitude, cities[random1000].latitude],
+      },
       images: [
         {
           url: "https://res.cloudinary.com/dudnzaiuc/image/upload/v1698172647/YelpCamp/wgdllmghhpbwopwqyqgu.jpg",
