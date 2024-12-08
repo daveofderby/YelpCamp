@@ -6,6 +6,7 @@
       class="d-inline validated-form"
       action="/campgrounds/<%=campground._id%>?_method=PUT"
       method="POST"
+      enctype="multipart/form-data"
       novalidate
     >
       <div class="mb-3">
@@ -33,16 +34,16 @@
         <div class="valid-feedback">Looks good!</div>
       </div>
       <div class="mb-3">
-        <label class="form-label" for="image">Image URL</label>
-        <input
-          class="form-control"
-          type="text"
-          id="image"
-          name="campground[image]"
-          value="<%= campground.image %>"
-          required
-        />
-        <div class="valid-feedback">Looks good!</div>
+        <div class="mb-3">
+          <label for="formFileMultiple" class="form-label">Images</label>
+          <input
+            class="form-control"
+            type="file"
+            name="images"
+            id="formFileMultiple"
+            multiple
+          />
+        </div>
       </div>
       <div class="mb-3">
         <label class="form-label" for="price">Campground Price</label>
@@ -74,14 +75,28 @@
         />
         <div class="valid-feedback">Looks good!</div>
       </div>
-
+      <div class="input-group mb-3">
+        <% campground.images.forEach(( img, i) => { %>
+        <div class="input-group-text">
+          <input
+            class="form-check-input mt-0"
+            type="checkbox"
+            id="image-<%=i%>"
+            value="<%=img.filename%>"
+            name="deleteImages[]"
+            aria-label="Checkbox for following image"
+          />
+          <label class="form-label" for="image-<%=i%>">
+            <img class="img-thumbnail" src="<%= img.thumbnail %>" alt="..."
+          /></label>
+        </div>
+        <% }) %>
+      </div>
       <button class="card-link btn btn-primary">
         Submitted by <%= currentUser.username %>
       </button>
     </form>
-    <a
-      class="card-link btn btn-warning"
-      href="/campgrounds/<%= campground._id %>"
+    <a class="card-link btn btn-warning" href="/campgrounds/<%= campground._id %>"
       >Cancel</a
     >
   </div>

@@ -1,7 +1,4 @@
-<nav
-  class="navbar sticky-top navbar-expand-sm bg-body-tertiary"
-  data-bs-theme="dark"
->
+<nav class="navbar sticky-top navbar-expand-sm bg-body-tertiary" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">YelpCamp</a>
     <button
@@ -26,8 +23,25 @@
         <a class="nav-link" href="/login">Login</a>
         <a class="nav-link" href="/register">Register</a>
         <% } else { %>
-        <!-- <span class="nav-link"><%= currentUser.username %></span> -->
-        <a class="nav-link" href="/logout">Signout</a>
+
+        <ul class="nav nav-pills">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              href="#"
+              role="button"
+              aria-expanded="false"
+              ><%= currentUser.username %></a
+            >
+            <ul class="dropdown-menu dropdown-menu-sm-end">
+              <li>
+                <a class="dropdown-item" href="/logout">Signout</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
         <% } %>
       </div>
     </div>
