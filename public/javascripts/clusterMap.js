@@ -14,6 +14,7 @@ map.on("load", () => {
   // Add a new source from our GeoJSON data and
   // set the 'cluster' option to true. GL-JS will
   // add the point_count property to your source data.
+  map.resize();
   map.addSource("campgrounds", {
     type: "geojson",
     // Point to GeoJSON data. This example visualizes all M1.0+ campgrounds
@@ -79,14 +80,16 @@ map.on("load", () => {
       layers: ["clusters"],
     });
     const clusterId = features[0].properties.cluster_id;
-    map.getSource("campgrounds").getClusterExpansionZoom(clusterId, (err, zoom) => {
-      if (err) return;
+    map
+      .getSource("campgrounds")
+      .getClusterExpansionZoom(clusterId, (err, zoom) => {
+        if (err) return;
 
-      map.easeTo({
-        center: features[0].geometry.coordinates,
-        zoom: zoom,
+        map.easeTo({
+          center: features[0].geometry.coordinates,
+          zoom: zoom,
+        });
       });
-    });
   });
 
   // When a click event occurs on a feature in
